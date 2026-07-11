@@ -1,0 +1,29 @@
+ablations:
+  sr_only:
+    recon: 1.0
+    defect: 0.0
+    hallucination: 0.0
+    edge: 0.0
+    calibration: 0.0
+    positive: 1.0
+  task:
+    recon: 1.0
+    defect: 1.0
+    hallucination: 0.0
+    edge: 0.0
+    calibration: 0.0
+    positive: 8.0
+  task_hallucination:
+    recon: 1.0
+    defect: 1.0
+    hallucination: 1.0
+    edge: 0.0
+    calibration: 0.0
+    positive: 8.0
+  full:
+    recon: 1.0
+    defect: 1.0
+    hallucination: 1.0
+    edge: 0.2
+    calibration: 0.05
+    positive: 8.0

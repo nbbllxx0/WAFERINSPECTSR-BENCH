@@ -1,0 +1,27 @@
+seed: 123
+num_samples: 304
+split_counts:
+  train: 128
+  val_calib: 32
+  test: 48
+  clean_calib: 16
+  clean_test: 24
+  weak_test: 24
+  ood_calib_optional: 8
+  ood_test: 24
+height: 256
+width: 256
+scale: 2
+pattern_types: ["line_space", "contact_hole"]
+defect_types: ["bridge", "gap", "particle", "scratch", "missing_pattern"]
+degradation:
+  blur_sigma: 1.2
+  defocus_sigma: 0.7
+  shot_noise: 0.025
+  gaussian_noise: 0.02
+  poisson_peak: 80.0
+  scanline_strength: 0.03
+  contrast_low: 0.85
+  contrast_high: 1.15
+  aliasing: 0.02
+output_dir: "data/generated/default"

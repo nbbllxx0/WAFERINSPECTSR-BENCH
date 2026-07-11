@@ -1,0 +1,28 @@
+seed: 20260602
+num_samples: 2496
+split_counts:
+  train: 1024
+  val_calib: 256
+  test: 256
+  clean_calib: 128
+  clean_test: 256
+  weak_test: 256
+  ood_calib_optional: 64
+  ood_test: 256
+height: 256
+width: 256
+scale: 2
+shard_size: 128
+pattern_types: ["line_space", "contact_hole"]
+defect_types: ["bridge", "gap", "particle", "scratch", "missing_pattern"]
+degradation:
+  blur_sigma: 1.2
+  defocus_sigma: 0.7
+  shot_noise: 0.025
+  gaussian_noise: 0.02
+  poisson_peak: 80.0
+  scanline_strength: 0.03
+  contrast_low: 0.85
+  contrast_high: 1.15
+  aliasing: 0.02
+output_dir: "data/generated/scaled_seed20260602"

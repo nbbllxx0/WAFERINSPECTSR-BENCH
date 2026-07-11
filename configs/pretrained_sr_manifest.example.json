@@ -1,0 +1,119 @@
+{
+  "baselines": [
+    {
+      "name": "EDSR-pretrained",
+      "family": "EDSR",
+      "architecture": "edsr",
+      "checkpoint": "models/pretrained_sr/edsr_x2.pt",
+      "source_url": "https://huggingface.co/eugenesiow/edsr-base/resolve/main/pytorch_model_2x.pt",
+      "source_note": "Public Hugging Face EDSR-base x2 checkpoint pretrained on DIV2K; original cv.snu.ac.kr EDSR archive was unreachable during this run.",
+      "download_path": "models/pretrained_sr/edsr_x2.pt",
+      "acquisition_mode": "direct_checkpoint",
+      "scale": 2,
+      "input_channels": 3,
+      "output_channels": 3,
+      "strict": false,
+      "kwargs": {
+        "channels": 64,
+        "blocks": 16,
+        "residual_scale": 0.1
+      }
+    },
+    {
+      "name": "RCAN-pretrained",
+      "family": "RCAN",
+      "architecture": "onnx",
+      "checkpoint": "models/pretrained_sr/rcan_int8_nhwc.onnx",
+      "source_url": "https://huggingface.co/amd/rcan/resolve/main/RCAN_int8_NHWC.onnx",
+      "source_note": "AMD Hugging Face RCAN int8 ONNX checkpoint using NHWC layout; downloaded file is fixed to 56x56 input and is evaluated with explicit overlapped fixed-tile inference on larger benchmark crops.",
+      "download_path": "models/pretrained_sr/rcan_int8_nhwc.onnx",
+      "acquisition_mode": "direct_checkpoint",
+      "scale": 2,
+      "input_channels": 3,
+      "output_channels": 3,
+      "strict": false,
+      "kwargs": {
+        "input_layout": "nhwc",
+        "output_layout": "nhwc",
+        "tile_fixed_input": true,
+        "tile_overlap": 8
+      }
+    },
+    {
+      "name": "ESRGAN-RRDB-x4-downsampled",
+      "family": "ESRGAN",
+      "architecture": "rrdb",
+      "checkpoint": "models/pretrained_sr/sources/ESRGAN_SRx4_DF2KOST_official-ff704c30.pth",
+      "source_url": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.1/ESRGAN_SRx4_DF2KOST_official-ff704c30.pth",
+      "source_note": "Official ESRGAN x4 release checkpoint. It is evaluated as a caveated x4-to-target comparator by downsampling its 4x output to the benchmark 2x HR target; it is not a native x2 ESRGAN checkpoint.",
+      "download_path": "models/pretrained_sr/sources/ESRGAN_SRx4_DF2KOST_official-ff704c30.pth",
+      "acquisition_mode": "scale_mismatch_evaluated",
+      "scale": 4,
+      "input_channels": 3,
+      "output_channels": 3,
+      "strict": false,
+      "kwargs": {
+        "channels": 64,
+        "blocks": 23,
+        "growth_channels": 32
+      }
+    },
+    {
+      "name": "Real-ESRGAN-RRDB-pretrained",
+      "family": "Real-ESRGAN",
+      "architecture": "rrdb",
+      "checkpoint": "models/pretrained_sr/realesrgan_rrdb_x2.pt",
+      "source_url": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.1/RealESRGAN_x2plus.pth",
+      "source_note": "Official Real-ESRGAN x2plus release checkpoint.",
+      "download_path": "models/pretrained_sr/realesrgan_rrdb_x2.pt",
+      "acquisition_mode": "direct_checkpoint",
+      "scale": 2,
+      "input_channels": 3,
+      "output_channels": 3,
+      "strict": false,
+      "kwargs": {
+        "channels": 64,
+        "blocks": 23,
+        "growth_channels": 32,
+        "pixel_unshuffle_scale": 2,
+        "upsample_steps": 2
+      }
+    },
+    {
+      "name": "SwinIR-pretrained",
+      "family": "SwinIR",
+      "architecture": "swinir",
+      "checkpoint": "models/pretrained_sr/sources/swinir_x2s64w8d6e180_8xb4-lr2e-4-500k_df2k-69e15fb6.pth",
+      "source_url": "https://download.openmmlab.com/mmediting/swinir/swinir_x2s64w8d6e180_8xb4-lr2e-4-500k_df2k-69e15fb6.pth",
+      "source_note": "OpenMMLab SwinIR x2 DF2K checkpoint loaded through the native SwinIR adapter.",
+      "download_path": "models/pretrained_sr/sources/swinir_x2s64w8d6e180_8xb4-lr2e-4-500k_df2k-69e15fb6.pth",
+      "acquisition_mode": "direct_checkpoint",
+      "scale": 2,
+      "input_channels": 3,
+      "output_channels": 3,
+      "strict": false,
+      "kwargs": {
+        "img_size": 64,
+        "embed_dim": 180,
+        "depths": [6, 6, 6, 6, 6, 6],
+        "num_heads": [6, 6, 6, 6, 6, 6],
+        "window_size": 8,
+        "mlp_ratio": 2.0,
+        "upscale_channels": 64
+      }
+    },
+    {
+      "name": "HAT-pretrained",
+      "family": "HAT",
+      "architecture": "spandrel",
+      "checkpoint": "models/pretrained_sr/hat_srx2_imagenet_pretrain.pth",
+      "source_url": "https://huggingface.co/jaideepsingh/upscale_models/resolve/main/HAT/HAT_SRx2_ImageNet-pretrain.pth",
+      "source_note": "Public Hugging Face mirror of the HAT x2 ImageNet-pretrained checkpoint; loaded through Spandrel's HAT architecture support.",
+      "download_path": "models/pretrained_sr/hat_srx2_imagenet_pretrain.pth",
+      "acquisition_mode": "direct_checkpoint",
+      "scale": 2,
+      "input_channels": 3,
+      "output_channels": 3
+    }
+  ]
+}

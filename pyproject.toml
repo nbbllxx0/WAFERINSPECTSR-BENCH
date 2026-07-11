@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "waferinspectsr"
+version = "0.1.0"
+description = "Inspection-safe super-resolution benchmark for semiconductor defect imagery."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "pillow",
+  "pyyaml",
+  "torch",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+pretrained = ["onnxruntime", "spandrel"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"

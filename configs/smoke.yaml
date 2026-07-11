@@ -1,0 +1,27 @@
+seed: 7
+num_samples: 12
+split_counts:
+  train: 4
+  val_calib: 2
+  test: 2
+  clean_calib: 1
+  clean_test: 2
+  weak_test: 2
+  ood_calib_optional: 1
+  ood_test: 2
+height: 128
+width: 128
+scale: 2
+pattern_types: ["line_space", "contact_hole"]
+defect_types: ["bridge", "gap", "particle", "scratch", "missing_pattern"]
+degradation:
+  blur_sigma: 1.0
+  defocus_sigma: 0.5
+  shot_noise: 0.02
+  gaussian_noise: 0.015
+  poisson_peak: 60.0
+  scanline_strength: 0.025
+  contrast_low: 0.90
+  contrast_high: 1.10
+  aliasing: 0.015
+output_dir: "data/generated/smoke"
