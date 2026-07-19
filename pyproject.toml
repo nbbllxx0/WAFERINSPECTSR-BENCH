@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "waferinspectsr"
-version = "0.1.0"
+version = "0.3.0"
 description = "Inspection-safe super-resolution benchmark for semiconductor defect imagery."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -17,6 +17,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest"]
+tsm = ["torchvision"]
 pretrained = ["onnxruntime", "spandrel"]
 
 [tool.setuptools.packages.find]

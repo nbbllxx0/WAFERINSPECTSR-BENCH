@@ -7,15 +7,15 @@ The accompanying manuscript's central protocol is deliberately conservative: can
 ## Included
 
 - `src/waferinspectsr/`: benchmark, degradation, model, metric, and protocol implementation.
-- `configs/`: smoke, default, scaled, ablation, and pretrained-model configurations.
-- `scripts/`: data preparation, training, evaluation, robustness, and protocol-audit entry points.
+- `configs/`: smoke, default, scaled, ablation, pretrained-model, and stable TSM manuscript configurations.
+- `scripts/`: data preparation, training, unified-protocol evaluation, external SEM stress, robustness, and protocol-audit entry points.
 - `tests/`: deterministic unit and smoke tests.
 
-Datasets, generated tensors, model checkpoints, experiment outputs, manuscript sources, and figure-generation code are intentionally not included. This boundary keeps the public repository focused on executable benchmark code and avoids redistributing third-party data or large artifacts.
+Datasets, generated tensors, model checkpoints, experiment outputs, manuscript sources, and figure-generation code are intentionally not included. This boundary keeps the public repository focused on executable benchmark code and avoids redistributing third-party data or large artifacts. The exact code path, canonical seeds, configuration, and commands used for the IEEE TSM manuscript are documented in [TSM_REPRODUCIBILITY.md](TSM_REPRODUCIBILITY.md).
 
 ## Installation
 
-Python 3.10 or newer is required.
+Python 3.10 or newer is required. The manuscript DeepLabV3 path also requires torchvision; install the optional tsm dependency group for that workflow.
 
 ```bash
 python -m pip install -e ".[dev]"
@@ -41,10 +41,10 @@ Generated data and outputs are ignored by Git. Use `--help` on each script for i
 
 ## Leak-free operating-point audit
 
-The manuscript audit used ten canonical seeds and a target clean-region FPR of `3e-4`. Candidate thresholds are fitted without test feedback, selected by clean calibration feasibility, and only then scored on the test split:
+The manuscript uses ten canonical seeds and a target clean-region FPR of `3e-4`. Candidate thresholds are fitted without test feedback, selected by clean calibration feasibility, and only then scored on the test split. The complete code-only workflow is in [TSM_REPRODUCIBILITY.md](TSM_REPRODUCIBILITY.md):
 
 ```bash
-python scripts/sweep_matched_fpr_offline.py --run-dir PATH/TO/SEED_RUNS --output-dir outputs/matched_clean_calib --device cuda
+python scripts/sweep_matched_fpr_offline.py --run-dir experiments/runs/tsm_seed_sweep --output-dir outputs/tsm_dpu_transfer --device cuda
 ```
 
 This audit found that clean-calibration feasibility did not transfer to the held-out test split for DPU-WaferSR (10/10 feasible on `clean_calib`, 0/10 feasible on test). The paper therefore reports this as a failed constraint-transfer result rather than a matched-FPR performance gain.
@@ -59,5 +59,5 @@ Code in this repository is released under the MIT License. Dataset and external 
 
 ## Citation
 
-Please cite the accompanying arXiv manuscript. Formal citation metadata will be added once the arXiv identifier is assigned.
+Please cite the accompanying manuscript. Formal citation metadata will be added when its permanent identifier is assigned.
 

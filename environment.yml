@@ -12,4 +12,5 @@ dependencies:
       - onnxruntime
       - spandrel
       - torch
+      - torchvision
       - -e .[dev]
