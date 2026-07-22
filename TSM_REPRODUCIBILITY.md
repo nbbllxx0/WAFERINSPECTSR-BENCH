@@ -4,6 +4,8 @@ This repository is the code implementation accompanying the manuscript
 "Does Super-Resolution Preserve Defect Evidence? A Low-False-Call Benchmark
 for Semiconductor Inspection."
 
+Preprint: https://arxiv.org/abs/2607.17401
+
 It intentionally contains code and configuration only. Datasets, generated
 sample arrays, checkpoints, experiment outputs, manuscript sources, and
 figure-rendering assets are not distributed. Running the commands below

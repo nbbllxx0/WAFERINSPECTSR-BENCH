@@ -2,6 +2,8 @@
 
 WaferInspectSR-Bench is the reference code release for evaluating super-resolution under semiconductor inspection constraints. It measures downstream defect recall together with clean-region false-positive behavior, weak-defect sensitivity, calibration, and abstention risk.
 
+**Paper:** [Does Super-Resolution Preserve Defect Evidence? A Low-False-Call Benchmark for Semiconductor Inspection](https://arxiv.org/abs/2607.17401) (arXiv:2607.17401)
+
 The accompanying manuscript's central protocol is deliberately conservative: candidate operating points are fit on `val_calib`, selected on the disjoint `clean_calib` split, frozen, and then evaluated once on held-out test data. The release includes the corrected no-test-feedback operating-point sweep used for that audit.
 
 ## Included
@@ -59,5 +61,18 @@ Code in this repository is released under the MIT License. Dataset and external 
 
 ## Citation
 
-Please cite the accompanying manuscript. Formal citation metadata will be added when its permanent identifier is assigned.
+Please cite the accompanying manuscript:
+
+```bibtex
+@misc{yang2026superresolution,
+  title = {Does Super-Resolution Preserve Defect Evidence? A Low-False-Call Benchmark for Semiconductor Inspection},
+  author = {Yang, Shaoliang and Wang, Jun},
+  year = {2026},
+  eprint = {2607.17401},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CV},
+  doi = {10.48550/arXiv.2607.17401},
+  url = {https://arxiv.org/abs/2607.17401}
+}
+```
 
